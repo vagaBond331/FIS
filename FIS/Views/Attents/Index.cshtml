@@ -1,0 +1,58 @@
+﻿@model IEnumerable<FIS.Models.Attent>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.user_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.log_time)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.device_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.log_type)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.description)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.user_id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.log_time)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.device_id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.log_type)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.description)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.log_id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.log_id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.log_id })
+        </td>
+    </tr>
+}
+
+</table>
